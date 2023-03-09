@@ -39,7 +39,7 @@ const SellerProductAdded = () => {
         //         console.error('Error:', error);
         //     });
 
-        fetch('http://localhost:5000/allProducts', {
+        fetch('https://ecook-backend.vercel.app/allProducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -55,7 +55,7 @@ const Login = () => {
 
     //     // setGoogleUser(googleUser1);
 
-    //     fetch('http://localhost:5000/register', {
+    //     fetch('https://ecook-backend.vercel.app/register', {
     //         method: 'POST',
     //         headers: {
     //             'content-type': 'application/json'
@@ -107,7 +107,7 @@ const Login = () => {
                             {error && <p className='text-red-600'>{error}</p>}
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn btn-primary bg-black">Login</button>
                         </div>
                     </form>
 

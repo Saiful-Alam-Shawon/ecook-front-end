@@ -32,7 +32,7 @@ const Home = () => {
     useEffect(() => {
         try {
             setLoading(true);
-            fetch('http://localhost:5000/all')
+            fetch('https://ecook-backend.vercel.app/all')
                 .then(res => res.json())
                 // .then(data => console.log(data))
                 .then(data => setRecipes(data))
@@ -48,7 +48,7 @@ const Home = () => {
     useEffect(() => {
         try {
             setLoading(true);
-            fetch(`http://localhost:5000/search?strMeal=${search}`)
+            fetch(`https://ecook-backend.vercel.app/search?strMeal=${search}`)
                 .then(res => res.json())
                 // .then(data => console.log(data))
                 .then(data => setSearchValue(data))
@@ -103,7 +103,7 @@ const Home = () => {
 
     const handleCategory = (c) => {
         setRecipes('');
-        fetch(`http://localhost:5000/category?category=${c}`)
+        fetch(`https://ecook-backend.vercel.app/category?category=${c}`)
             .then(res => res.json())
             //         // .then(data => console.log(data))
             .then(data => setRecipes(data))

@@ -64,7 +64,7 @@ const Category = () => {
 
     const handleCategory = (c) => {
         setRecipes('');
-        fetch(`http://localhost:5000/category?category=${c}`)
+        fetch(`https://ecook-backend.vercel.app/category?category=${c}`)
             .then(res => res.json())
             //         // .then(data => console.log(data))
             .then(data => setRecipes(data))

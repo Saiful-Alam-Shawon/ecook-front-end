@@ -41,12 +41,12 @@ const routes = createBrowserRouter(
                 {
                     path: '/category/:name',
                     element: <Category></Category>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/category/${params.name}`)
+                    loader: ({ params }) => fetch(`https://ecook-backend.vercel.app/category/${params.name}`)
                 },
                 {
                     path: '/details/:id',
                     element: <SeeDetails></SeeDetails>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+                    loader: ({ params }) => fetch(`https://ecook-backend.vercel.app/details/${params.id}`)
                 },
                 {
                     path: '/test',

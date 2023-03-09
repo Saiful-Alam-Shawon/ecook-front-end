@@ -15,7 +15,7 @@ const MyProducts = () => {
 
 
     const handleAds = (product) => {
-        fetch('http://localhost:5000/ads', {
+        fetch('https://ecook-backend.vercel.app/ads', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -41,7 +41,7 @@ const MyProducts = () => {
 
     const handleDelete = id => {
         // console.log(id);
-        fetch(`http://localhost:5000/deletingProduct/${id}`, {
+        fetch(`https://ecook-backend.vercel.app/deletingProduct/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -60,7 +60,7 @@ const MyProducts = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/sellerProductsByEmail?email=${user?.email}`)
+        fetch(`https://ecook-backend.vercel.app/sellerProductsByEmail?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -70,7 +70,7 @@ const MyProducts = () => {
             })
     }, [user?.email, isreload]);
 
-    // console.log(`http://localhost:5000/sellerProductsByEmail?email=${user?.email}`);
+    // console.log(`https://ecook-backend.vercel.app/sellerProductsByEmail?email=${user?.email}`);
     // console.log(products.length);
     // console.log(user.email);
     // no

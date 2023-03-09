@@ -12,7 +12,7 @@ const AdminBuyer = () => {
 
     const handleDelete = id => {
         // console.log(id);
-        fetch(`http://localhost:5000/deletingUser/${id}`, {
+        fetch(`https://ecook-backend.vercel.app/deletingUser/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -28,7 +28,7 @@ const AdminBuyer = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/allbuyers')
+        fetch('https://ecook-backend.vercel.app/allbuyers')
             .then(res => res.json())
             .then(data => setAllAdminBuyerUsers(data))
         setLoading(false);

@@ -15,7 +15,7 @@ const Buyer = () => {
 
     const handleDelete = id => {
         // console.log(id);
-        fetch(`http://localhost:5000/BuyerProduct/${id}`, {
+        fetch(`https://ecook-backend.vercel.app/BuyerProduct/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const Buyer = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/buyerProductsByEmail?email=${user?.email}`)
+        fetch(`https://ecook-backend.vercel.app/buyerProductsByEmail?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
@@ -56,7 +56,7 @@ const Buyer = () => {
 
     const handlePayment = id => {
         // console.log(id);
-        fetch(`http://localhost:5000/booking/status/${id}`, {
+        fetch(`https://ecook-backend.vercel.app/booking/status/${id}`, {
             method: 'PUT'
         })
             .then(res => res.json())

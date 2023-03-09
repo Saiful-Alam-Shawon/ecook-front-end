@@ -41,7 +41,7 @@ const Register = () => {
         }
 
 
-        fetch('http://localhost:5000/register', {
+        fetch('https://ecook-backend.vercel.app/register', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -108,7 +108,7 @@ const Register = () => {
 
 
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Register</button>
+                                <button className="btn btn-primary bg-black">Register</button>
                             </div>
                         </form>
                     </div>

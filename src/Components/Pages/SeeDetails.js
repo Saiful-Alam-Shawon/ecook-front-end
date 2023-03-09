@@ -26,7 +26,7 @@ const SeeDetails = () => {
 
         console.log(newdata)
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://ecook-backend.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -12,7 +12,7 @@ const AdminSeller = () => {
 
     const handleDelete = id => {
         // console.log(id);
-        fetch(`http://localhost:5000/deletingUser/${id}`, {
+        fetch(`https://ecook-backend.vercel.app/deletingUser/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -28,7 +28,7 @@ const AdminSeller = () => {
 
     const handleVerify = id => {
         // console.log(id);
-        fetch(`http://localhost:5000/user/verify/${id}`, {
+        fetch(`https://ecook-backend.vercel.app/user/verify/${id}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -45,7 +45,7 @@ const AdminSeller = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/allsellers')
+        fetch('https://ecook-backend.vercel.app/allsellers')
             .then(res => res.json())
             .then(data => setAllAdminSellerUsers(data))
         setLoading(false);
