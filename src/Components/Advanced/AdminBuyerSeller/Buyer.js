@@ -30,6 +30,8 @@ const Buyer = () => {
     };
 
 
+
+
     useEffect(() => {
         fetch(`http://localhost:5000/buyerProductsByEmail?email=${user?.email}`)
             .then(res => res.json())

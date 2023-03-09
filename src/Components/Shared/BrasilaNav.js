@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthShare } from '../Firebase/AuthContext';
+import { FaUserAlt } from 'react-icons/fa';
+import useAdmin from '../Advanced/AdminBuyerSeller/useAdmin';
+import useSeller from '../Advanced/AdminBuyerSeller/useSeller';
+import useBuyer from '../Advanced/AdminBuyerSeller/useBuyer';
 
 const BrasilaNav = () => {
 
 
-    // const { user, logOut } = useContext(AuthShare);
-    // const email = user?.email;
+    const { user, logOut } = useContext(AuthShare);
+    const email = user?.email;
+    // console.log(user);
+
+
+    const [isAdmin] = useAdmin(user?.email);
+    const [isSeller] = useSeller(user?.email);
+    const [isBuyer] = useBuyer(user?.email);
+
+
+
+
 
     const handleLogOut = () => {
         logOut().then(() => {
@@ -19,7 +35,7 @@ const BrasilaNav = () => {
 
     return (
         <div>
-            <Upper></Upper>
+            {/* <Upper></Upper> */}
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -28,7 +44,7 @@ const BrasilaNav = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             {/* <li><a href=" #">Item 1</a></li> */}
-                            <Link to='/rooms' className='px-4 py-3'>
+                            {/* <Link to='/rooms' className='px-4 py-3'>
                                 <li>Rooms</li>
                             </Link>
                             <Link to='/restaurant' className='px-4 py-3'>
@@ -42,7 +58,7 @@ const BrasilaNav = () => {
                             </Link>
                             <Link to='/offer' className='px-4 py-3'>
                                 <li>Offer</li>
-                            </Link>
+                            </Link> */}
                             {/* <Link to='/login' className='px-4 py-3'>
                                 <li>Login</li>
                             </Link>
@@ -70,8 +86,8 @@ const BrasilaNav = () => {
                         </ul>
                     </div>
                     {/* <a href=" #" ></a> */}
-                    {/* <Link to='/' className="btn btn-ghost normal-case text-xl">daisyUI */}
-                    {/* </Link> */}
+                    <Link to='/' className="btn btn-ghost normal-case bg-black text-xl text-white hover:text-black">E-Cook
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -79,7 +95,7 @@ const BrasilaNav = () => {
                             user?.email &&
                             <span>{user?.email}</span>
                         } */}
-                        <Link to='/rooms' className='px-4 py-3'>
+                        {/* <Link to='/rooms' className='px-4 py-3'>
                             <li>Rooms</li>
                         </Link>
                         <Link to='/restaurant' className='px-4 py-3'>
@@ -93,7 +109,7 @@ const BrasilaNav = () => {
                         </Link>
                         <Link to='/offer' className='px-4 py-3'>
                             <li>Offer</li>
-                        </Link>
+                        </Link> */}
 
                         {/* <Link to='/login' className='px-4 py-3'>
                             <li>Login</li>
@@ -135,6 +151,7 @@ const BrasilaNav = () => {
                                     <div className="w-10 rounded-full">
                                         <div className="chat-image avatar btn">
                                             <div >
+                                                {/* <FaUserSecret/> */}
                                                 <FaUserAlt className=' mt-3 mr-20 ' ></FaUserAlt>
                                             </div>
                                         </div>
@@ -148,8 +165,9 @@ const BrasilaNav = () => {
                                     {/* <span className="badge">New</span> */}
                                     {/* </a>
                             </li> */}
-                                    <Link to='/profile' className='px-4 py-3'>
-                                        <li>Profile</li>
+                                    <li className='text-xs text-lime-500'>{email}</li>
+                                    <Link to='/dashboard' className='px-4 py-3'>
+                                        <li>Dashboard</li>
                                     </Link>
                                     {/* <li><a>Settings</a></li> */}
                                     <Link to='/'>
@@ -157,6 +175,8 @@ const BrasilaNav = () => {
                                     </Link>
                                 </ul>
                             </div>
+
+
                         </>
                         :
                         <>
