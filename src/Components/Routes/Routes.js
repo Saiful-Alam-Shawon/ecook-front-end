@@ -90,33 +90,6 @@ const routes = createBrowserRouter(
                     path: '/dashboard',
                     element: <DashBoardHome></DashBoardHome>
                 },
-                // Admin Part
-                // {
-                //     path: '/dashboard/allusers',
-                //     element: <AdminRoute><Admin></Admin></AdminRoute>
-                // },
-                // {
-                //     path: '/dashboard/allsellers',
-                //     element: <AdminRoute><AdminSeller></AdminSeller></AdminRoute>,
-                // },
-                // {
-                //     path: '/dashboard/allbuyers',
-                //     element: <AdminRoute><AdminBuyer></AdminBuyer></AdminRoute>,
-                // },
-                // Seller Part
-                // {
-                //     path: '/dashboard/seller',
-                //     element: <SellerPrivateRoute><MyProducts></MyProducts></SellerPrivateRoute>
-                // },
-                // {
-                //     path: 'dashboard/addproduct',
-                //     element: <SellerPrivateRoute><SellerProductAdded></SellerProductAdded></SellerPrivateRoute>
-                // },
-                // Buyer Part
-                // {
-                //     path: 'dashboard/buyer',
-                //     element: <BuyerPrivate><Buyer></Buyer></BuyerPrivate>
-                // }
             ]
         }
     ]

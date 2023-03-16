@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthShare } from '../../Firebase/AuthContext';
 import { Link, Outlet } from 'react-router-dom';
-import Navbar from './../../Shared/Navbar';
 import useAdmin from './useAdmin';
 import useSeller from './useSeller';
 import useBuyer from './useBuyer';
@@ -10,11 +9,8 @@ import BrasilaNav from '../../Shared/BrasilaNav';
 const DashBoardLayout = () => {
     const { user } = useContext(AuthShare);
     const [isAdmin] = useAdmin(user?.email);
-    // const [isBuyer] = useSeller(user?.email); 
     const [isSeller] = useSeller(user?.email);
-    // const [isSeller] = useSeller(user?.email)
     const [isBuyer] = useBuyer(user?.email);
-    // console.log(isBuyer);
     const adminMenu = <>
         <li><Link to='/dashboard/allusers' className='bg-black text-white'>All Users</Link></li>
         <li><Link to='/dashboard/allsellers' className='bg-black text-white my-3'> Sellers</Link></li>
@@ -32,7 +28,6 @@ const DashBoardLayout = () => {
     if (isAdmin)
         return (
             <div>
-                {/* <Navbar></Navbar> */}
                 <BrasilaNav></BrasilaNav>
 
 
@@ -40,7 +35,6 @@ const DashBoardLayout = () => {
                     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content">
                         <Outlet></Outlet>
-                        {/* <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
                         <label htmlFor="my-drawer-2" className="menu p-4 w-80 bg-base-100 text-base-content lg:hidden">{adminMenu}</label>
 
                     </div>
@@ -61,14 +55,12 @@ const DashBoardLayout = () => {
     if (isBuyer)
         return (
             <div>
-                {/* <Navbar></Navbar> */}
                 <BrasilaNav></BrasilaNav>
 
                 <div className="drawer drawer-mobile">
                     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content">
                         <Outlet></Outlet>
-                        {/* <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
                         <label htmlFor="my-drawer-2" className="menu p-4 w-80 bg-base-100  text-base-content lg:hidden">{buyerMenu}</label>
 
                     </div>
@@ -88,14 +80,12 @@ const DashBoardLayout = () => {
     if (isSeller)
         return (
             <div>
-                {/* <Navbar></Navbar> */}
                 <BrasilaNav></BrasilaNav>
 
                 <div className="drawer drawer-mobile">
                     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content">
                         <Outlet></Outlet>
-                        {/* <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
                         <label htmlFor="my-drawer-2" className="menu p-4 w-80 bg-base-100 text-base-content lg:hidden">{sellerMenu}</label>
 
                     </div>

@@ -10,8 +10,7 @@ const Login = () => {
 
 
     const [error, setError] = useState('');
-    // const [googleUser, setGoogleUser] = useState({})
-    const { login, googleLogin, } = useContext(AuthShare);
+    const { login } = useContext(AuthShare);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -40,47 +39,7 @@ const Login = () => {
     }
 
 
-    // const handleGoogleLogin = () => {
 
-
-    // googleLogin()
-    // .then(result => {
-    //     const user = result.user;
-    //     const googleUser1 = {
-    //         userName: user.displayName,
-    //         userEmail: user.email,
-    //         userRole: "Buyer"
-    //     };
-    //     console.log(user.email, user.displayName);
-
-    //     // setGoogleUser(googleUser1);
-
-    //     fetch('https://ecook-backend.vercel.app/register', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(googleUser1)
-    //     })
-    //         .then(res => res.json(googleUser1))
-    //         .then(data => {
-    //             // console.log(data);
-    //             if (data.acknowledged) {
-    //                 toast.success('User Created Successfully')
-    //                 navigate('/');
-    //             }
-
-    //         })
-    //         .catch(error => console.log(error.message));
-
-
-    //     // google(googleUser1);
-
-    // })
-    // .catch(error => setError(error.message));
-    // .catch(error => console.log(error.message));
-
-    // };
 
 
     return (
@@ -110,8 +69,6 @@ const Login = () => {
                             <button className="btn btn-primary bg-black">Login</button>
                         </div>
                     </form>
-
-                    {/* <div onClick={handleGoogleLogin} className='text-center mb-3'><button className="btn btn-wide">Google SignUp</button></div> */}
                 </div>
             </div>
         </div>

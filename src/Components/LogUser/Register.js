@@ -18,8 +18,6 @@ const Register = () => {
         const password = form.password.value;
         const select = form.select.value;
 
-        // console.log(name, email, select);
-
         createUser(email, password)
             .then(result => {
                 const user = result.user;
@@ -89,7 +87,6 @@ const Register = () => {
                                     <span className="label-text">Select Your Membership</span>
                                 </label>
                                 <select name='select' className="select w-full max-w-xs input-bordered">
-                                    {/* <option disabled select={"Membership"}>Pick Your Membership</option> */}
                                     <option select={"Buyer"}>Buyer</option>
                                     <option select={"Seller"}>Seller</option>
                                 </select>

@@ -1,21 +1,22 @@
 import React, { useContext, useState } from 'react';
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthShare } from '../Firebase/AuthContext';
 import 'react-toastify/dist/ReactToastify.css';
+import useSeller from '../Advanced/AdminBuyerSeller/useSeller';
 
 const SeeDetails = () => {
 
     const data = useLoaderData();
-    const { category, duration, price, rating, strMeal, strMealThumb, text, _id } = data[0];
+    const { category, duration, price, rating, strMeal, strMealThumb, text } = data[0];
     // console.log(strMeal);
 
 
     const { user } = useContext(AuthShare);
-    const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [isreload, setIsreload] = useState(true);
     const [error, setError] = useState('');
+    const [isSeller] = useSeller(user?.email);
 
     const userEmail = user?.email;
     const navigate = useNavigate();
@@ -38,7 +39,6 @@ const SeeDetails = () => {
                 // console.log(data);
                 if (data.acknowledged) {
                     navigate('/dashboard/buyer');
-                    // <Link to=""></Link>
                     setLoading(false);
                     setIsreload(!isreload);
                     toast.success(`Thanks for Booking
@@ -46,6 +46,14 @@ const SeeDetails = () => {
                 }
             })
             .catch(error => setError(error.message));
+    };
+
+    const noBooking = () => {
+        alert('Seller are not Allow to Buy any Product')
+    };
+
+    const withoutuser = () => {
+        toast.warning('Please Login First')
     }
 
 
@@ -56,6 +64,7 @@ const SeeDetails = () => {
             <div className="hero-content flex-col lg:flex-row">
                 <img src={strMealThumb} alt='' className="max-w-lg rounded-lg shadow-2xl" />
                 <div>
+
                     <h1 className="text-5xl font-bold">{strMeal}</h1>
 
                     <div className='flex gap-20 '>
@@ -67,9 +76,32 @@ const SeeDetails = () => {
 
 
                     <p className="py-6">{text}</p>
-                    <button className='bg-black text-white px-14 py-3 '
-                        onClick={() => booking()}
-                    >Enroll Recipe</button>
+
+                    {
+                        userEmail ?
+                            <>
+                                {
+                                    isSeller ?
+                                        <>
+                                            <button className='bg-black text-white px-14 py-3 '
+                                                onClick={() => noBooking()}
+                                            >Enroll Recipe</button>
+                                        </>
+                                        :
+                                        <>
+                                            <button className='bg-black text-white px-14 py-3 '
+                                                onClick={() => booking()}
+                                            >Enroll Recipe</button>
+                                        </>
+                                }
+                            </>
+                            :
+                            <>
+                                <button className='bg-black text-white px-14 py-3 '
+                                    onClick={() => withoutuser()}
+                                >Enroll Recipe</button>
+                            </>
+                    }
                 </div>
             </div>
             <ToastContainer

@@ -5,38 +5,15 @@ import { AuthShare } from '../../Firebase/AuthContext';
 const MyProducts = () => {
 
 
-    const { user, setAds, ads } = useContext(AuthShare);
+    const { user } = useContext(AuthShare);
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    // const [isreload, setIsreload] = useState(true);
     const [isreload, setIsreload] = useState(true);
 
 
-    const handleAds = (product) => {
-        fetch('https://ecook-backend.vercel.app/ads', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(product)
-        })
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                if (data.acknowledged) {
-                    // navigate('/dashboard/product');
-                    setLoading(false);
-                    setIsreload(!isreload);
-                    toast.success('Product Added')
-                }
-            })
-            .catch(error => setError(error.message));
 
-    }
-
-    // console.log(ads);
 
 
     const handleDelete = id => {
@@ -70,18 +47,12 @@ const MyProducts = () => {
             })
     }, [user?.email, isreload]);
 
-    // console.log(`https://ecook-backend.vercel.app/sellerProductsByEmail?email=${user?.email}`);
-    // console.log(products.length);
-    // console.log(user.email);
-    // no
 
 
 
 
     return (
         <div >
-
-            {/* // products.map((product, i) => */}
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
@@ -142,7 +113,6 @@ const MyProducts = () => {
                                 </td>
                                 <td>{product.price}</td>
                                 <th>
-                                    {/* <button className="btn btn-ghost btn-xs">Delete</button> */}
                                     <button onClick={() => handleDelete(product._id)} className="btn btn-sm">Delete</button>
                                 </th>
 
@@ -155,44 +125,6 @@ const MyProducts = () => {
 
                 </table>
             </div>
-            {/* // <div key={product._id} >
-                    //     <div className="card w-96 bg-neutral text-neutral-content">
-                    //         <div className="card-body items-center text-center">
-                    //             <h2 className="card-title"> Name: {product.Name}</h2>
-                    //             <p>Price: {product?.Price}</p>
-                    //             <p>Used Year: {product.UsedYear}</p>
-                    //             <p>Category: {product.Category}</p>
-                    //             <p>Condition{product.Condition}</p>
-                    //             <p>Mobile: {product.Mobile}</p>
-                    //             <p>Seller Location: {product.Location}</p>
-                    //             <p>Seller Email: {product.userEmail}</p>
-                    //             <div className="card-actions justify-end">
-                    //                 <button onClick={() => handleDelete(product._id)} className="btn btn-primary">Delete</button>
-                    //                 <button onClick={() => handleAds(product._id)} className="btn btn-primary">Ads</button>
-                    //             </div>
-                    //         </div>
-                    //     </div>
-                    // </div> */}
-
-
-
-
-
-
-            {/* Extra Card  */}
-
-
-            {/* <div className="card w-96 bg-neutral text-neutral-content">
-                <div className="card-body items-center text-center">
-                    <h2 className="card-title">Cookies!</h2>
-                    <p>We are using cookies for no reason.</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Accept</button>
-                        <button onClick={() => setAds("ok")} className="btn btn-ghost">Deny</button>
-                    </div>
-                </div>
-            </div> */}
-
 
         </div>
     );

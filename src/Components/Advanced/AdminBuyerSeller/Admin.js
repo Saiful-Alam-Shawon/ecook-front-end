@@ -99,7 +99,6 @@ const Admin = () => {
                                         {
                                             user?.userRole === 'Admin' ?
                                                 <>
-                                                    {/* <button className="btn btn-sm hidden" disabled>DELETE</button> */}
                                                 </>
                                                 :
                                                 <>
@@ -108,28 +107,9 @@ const Admin = () => {
                                                 </>
 
                                         }
-                                        {/* <button className="btn btn-sm">DELETE</button> */}
-
                                     </td>
                                 </tr>)
                         }
-                        {/* <tr key={user._id}
-                                >
-                                    <th>{i + 1}</th>
-                                    <td>{user.userName}</td>
-                                    <td>{user.userRole}</td>
-                                    <td>{ }</td>
-                                </tr>
-                        <tr> */}
-                        {/* <th>1</th>
-                        <td>Cy Ganderton</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Blue</td>
-                    </tr>
-                    {/* <!-- row 2 --> */}
-
-                        {/* <!-- row 3 --> */}
-                        {/* */}
                     </tbody>
                 </table>
             </div>

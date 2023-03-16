@@ -43,17 +43,6 @@ const Buyer = () => {
             })
     }, [user?.email, isreload]);
 
-    // const onToken = (token) => {
-    //     fetch('/save-stripe-token', {
-    //         method: 'POST',
-    //         body: JSON.stringify(token),
-    //     }).then(response => {
-    //         response.json().then(data => {
-    //             alert(`We are in business, ${data.email}`);
-    //         });
-    //     });
-    // }
-
     const handlePayment = id => {
         // console.log(id);
         fetch(`https://ecook-backend.vercel.app/booking/status/${id}`, {
@@ -64,15 +53,12 @@ const Buyer = () => {
                 // console.log(data);
 
                 if (data.modifiedCount > 0)
-                    // setLoading(false);
                     setIsreload(!isreload);
-                // toast.success('User Updated')
+
             })
     };
 
     const onToken = (token) => {
-        // console.log("Every");
-        // console.log(token.id);
 
         if (!token.id) {
             // console.log('No token');
@@ -144,28 +130,9 @@ const Buyer = () => {
                                                     </div>
                                                 </>
                                         }
-
-
-
-
                                     </div>
                                 </div>
                             </div>
-
-
-                            // <div key={product._id} >
-                            //     <div className="card w-96 bg-neutral text-neutral-content">
-                            //         <div className="card-body items-center text-center">
-                            //             <h2 className="card-title">{product.name}</h2>
-                            //             <p>{product.selling}</p>
-                            //             <p>{product.location}</p>
-                            //             <div className="card-actions justify-end">
-                            //                 <Link to={`/dashboard/dash1boar1db1/pay/${product._id}`}>   <button className="btn btn-primary">Pay</button></Link>
-                            //                 <button onClick={() => handleDelete(product._id)} className="btn btn-ghost">Delete</button>
-                            //             </div>
-                            //         </div>
-                            //     </div>
-                            // </div>
                         )
                     }
 
